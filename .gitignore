@@ -1,10 +1,13 @@
-#Visual Studio
+# Visual Studio
 .vs/
-#中间目录
+# 中间目录
 **/obj
 
-#生成目录
+# 生成目录
 **/bin
 
-#文档生成目录
+# 文档生成目录
 docs/
+
+# Nuget包
+packages/

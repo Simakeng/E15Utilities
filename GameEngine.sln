@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectWizard", "tools\ProjectWizard\ProjectWizard.csproj", "{45BE93B4-FEE5-4B17-9D99-12B66062242A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pack", "tools\Pack\Pack.csproj", "{2FA9027A-27BD-42AA-8B64-264CE8B57936}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Utilities.GUID", "Utilities\Utilities.GUID\Utilities.GUID.vcxproj", "{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{97A0D46E-0C32-4093-9DF9-D319C2B9C645}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +66,20 @@ Global
 		{2FA9027A-27BD-42AA-8B64-264CE8B57936}.Release|x64.Build.0 = Release|Any CPU
 		{2FA9027A-27BD-42AA-8B64-264CE8B57936}.Release|x86.ActiveCfg = Release|Any CPU
 		{2FA9027A-27BD-42AA-8B64-264CE8B57936}.Release|x86.Build.0 = Release|Any CPU
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Debug|ARM.ActiveCfg = Debug|Win32
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Debug|x64.ActiveCfg = Debug|x64
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Debug|x64.Build.0 = Debug|x64
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Debug|x86.ActiveCfg = Debug|Win32
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Debug|x86.Build.0 = Debug|Win32
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Release|Any CPU.ActiveCfg = Release|Win32
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Release|ARM.ActiveCfg = Release|Win32
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Release|ARM64.ActiveCfg = Release|Win32
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Release|x64.ActiveCfg = Release|x64
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Release|x64.Build.0 = Release|x64
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Release|x86.ActiveCfg = Release|Win32
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +87,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{45BE93B4-FEE5-4B17-9D99-12B66062242A} = {2A15F8D6-2BE7-4A01-B50C-385D060BEA03}
 		{2FA9027A-27BD-42AA-8B64-264CE8B57936} = {2A15F8D6-2BE7-4A01-B50C-385D060BEA03}
+		{67A4DD0D-688D-4FFB-A15F-D0EB6534A13F} = {97A0D46E-0C32-4093-9DF9-D319C2B9C645}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97BA6F82-0BC9-4DCB-99D1-801AF5477810}

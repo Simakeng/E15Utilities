@@ -115,11 +115,11 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>|#projsubsys#|</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries</Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
@@ -134,11 +134,11 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>|#projsubsys#|</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries</Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
@@ -155,13 +155,13 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>|#projsubsys#|</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries</Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
@@ -178,20 +178,18 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>|#projsubsys#|</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries</Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

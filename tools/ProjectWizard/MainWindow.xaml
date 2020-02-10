@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="ProjectWizard" Height="215" Width="570"
         ResizeMode="NoResize"
-        Loaded="OnStartup">
+        Loaded="OnStartup"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="工程生成器" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="74" />
         <Label Content="工程名称" HorizontalAlignment="Left" Height="24" Margin="10,39,0,0" VerticalAlignment="Top" Width="74" />

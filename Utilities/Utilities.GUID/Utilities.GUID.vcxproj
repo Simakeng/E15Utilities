@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
     <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
@@ -81,8 +81,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
     <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
@@ -90,8 +90,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
     <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
@@ -99,8 +99,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
     <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
@@ -119,7 +119,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries</Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
@@ -138,7 +138,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries</Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
@@ -161,7 +161,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries</Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
@@ -184,7 +184,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries</Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>

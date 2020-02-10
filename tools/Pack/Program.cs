@@ -1,159 +1,148 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Text.RegularExpressions;
 
 namespace Pack
 {
-    class Program
+    internal class Program
     {
-
-        static void Main(string[] args)
+        private class HeaderFile
         {
-            //获取当前程序所在的文件路径
-            string rootPath = "C:\\Users\\Administrator\\Desktop\\456";
+            public string path;
+            public List<string> subHeaders = new List<string>();
+            public bool isTop = true;
+            public bool loaded = false;
 
-            // 获取全部文件
-            file e = new file();
-
-            var allfile = e.GetFiles(rootPath);
-
-            // 遍历全部文件里面的数据 类似与include"xxxxx.h"
-            // #include\s*".+"
-            for (int i = 0; i < allfile.Length; i++)
+            public HeaderFile(string _path)
             {
-                e.Search(allfile[i].FullName);
-            }
-
-
-            Console.WriteLine("OK.");
-        }
-    }
-
-    class file
-    {
-        public List<Files> fileList = new List<Files>();
-
-        public struct Files
-        {
-            public string FullName;
-            public string Name;
-            public bool flag;
-        }
-
-        /// <summary>
-        /// 获得目录下所有文件或指定文件类型文件地址
-        /// </summary>
-        public Files[] GetFiles(string fullPath, bool isFullName = false)
-        {
-            try
-            {
-                fileList.Clear();
-
-                DirectoryInfo dirs = new DirectoryInfo(fullPath);       //获得程序所在路径的目录对象
-                DirectoryInfo[] dir = dirs.GetDirectories();            //获得目录下文件夹对象
-                FileInfo[] file = dirs.GetFiles();                      //获得目录下文件对象
-                int dircount = dir.Count();                             //获得文件夹对象数量
-                int filecount = file.Count();                           //获得文件对象数量
-
-                //循环文件夹
-                for (int i = 0; i < dircount; i++)
+                this.path = _path;
+                string rootPath = Program.GetDirectory(this.path);
+                string text = File.ReadAllText(path, Encoding.UTF8);
+                foreach (Match headers in Regex.Matches(text, @"(?=#include).+"))
                 {
-                    string pathNode = fullPath + "\\" + dir[i].Name;
-                    GetMultiFile(pathNode, isFullName);
-                }
-
-                //循环文件
-                for (int i = 0; i < filecount; i++)
-                {
-                    Files files = new Files { FullName = file[i].FullName, Name = file[i].Name, flag = false };
-
-                    if (File(file[i].Name))
+                    var m = Regex.Match(headers.Value, "(?=\").*(?=\")");
+                    if (m.Success)
                     {
-                        fileList.Add(files);
+                        string subHeader = Path.Combine(rootPath, m.Value.Substring(1));
+                        subHeaders.Add(subHeader);
                     }
                 }
-
-                return fileList.ToArray();
             }
-            catch (Exception ex)
+        }
+
+        public static string GetDirectory(string fileName)
+        {
+            var start = fileName.LastIndexOf('\\');
+            if (start != -1)
+                return fileName.Substring(0, start);
+            return fileName;
+        }
+
+        public static string GetIncludeFileName(string line)
+        {
+            foreach (Match headers in Regex.Matches(line, @"(?=#include).+"))
             {
-
+                var m = Regex.Match(headers.Value, "(?=\").*(?=\")");
+                if (m.Success)
+                    return m.Value.Substring(1);
             }
-
             return null;
         }
 
-        public bool GetMultiFile(string path, bool isFullName = false)
+        private static void AppendFileToStream(IEnumerable<Program.HeaderFile> headers, Dictionary<string, Program.HeaderFile> dict, StreamWriter sw)
         {
-            if (Directory.Exists(path) == false)
-            { return false; }
-
-            DirectoryInfo dirs = new DirectoryInfo(path);           //获得程序所在路径的目录对象
-            DirectoryInfo[] dir = dirs.GetDirectories();            //获得目录下文件夹对象
-            FileInfo[] file = dirs.GetFiles();                      //获得目录下文件对象
-            int dircount = dir.Count();                             //获得文件夹对象数量
-            int filecount = file.Count();                           //获得文件对象数量
-
-            int sumcount = dircount + filecount;
-
-            if (sumcount == 0)
-            { return false; }
-
-            //循环文件夹
-            for (int i = 0; i < dircount; i++)
+            foreach (var top in headers)
             {
-                string pathNodeB = path + "\\" + dir[i].Name;
-                GetMultiFile(pathNodeB, isFullName);
-            }
-
-            //循环文件
-            for (int i = 0; i < filecount; i++)
-            {
-                Files files = new Files { FullName = file[i].FullName, Name = file[i].Name, flag = false };
-
-                if (File(file[i].Name))
+                Stack<StreamReader> stack = new Stack<StreamReader>();
+                stack.Push(new StreamReader(top.path, Encoding.UTF8));
+                dict[top.path].loaded = true;
+                string line = null;
+                while (stack.Count != 0)
                 {
-                    fileList.Add(files);
-                }
-            }
-            return true;
-        }
-
-        public bool File(string str)
-        {
-            string patternH = @"(.*)(\.h)$";
-
-            return (Regex.IsMatch(str, patternH)) ? true : false;
-        }
-
-        public void Search(string str)
-        {
-            using (StreamReader sr = new StreamReader(str))
-            {
-                string line;
-                var reg = "#include(\\s*\".+\")";
-                Regex r = new Regex(reg);
-
-                // 从文件读取并显示行，直到文件的末尾 
-                while ((line = sr.ReadLine()) != null)
-                {
-                    Match m = r.Match(line); // 在字符串中匹配
-                    if (m.Success)
+                    var sr = stack.Pop();
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        for (int i = 0; i < fileList.Count; i++)
+                        var header = GetIncludeFileName(line);
+                        if (header != null)
                         {
-                            if ("#include \"" + fileList[i].Name + "\"" == m.Value)
+                            var subheaderPath = Path.Combine(GetDirectory(top.path), header);
+                            if (dict.ContainsKey(subheaderPath))
                             {
-                                fileList[i].flag = true;
+                                if (!dict[subheaderPath].loaded)
+                                {
+                                    dict[subheaderPath].loaded = true;
+                                    stack.Push(sr);
+                                    stack.Push(new StreamReader(subheaderPath, Encoding.UTF8));
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine($"[警告]检测到错误的 include 文件 {subheaderPath} 已保留");
+                                sw.Write(line);
                             }
                         }
+                        else sw.WriteLine(line);
                     }
                 }
             }
         }
-    }
 
+        private static void Main(string[] args)
+        {
+            try
+            {
+                string ProjType = args[0];
+                string binaryFilePath = args[1];
+                string ProjectPath = args[2];
+                string OutIncludePath = args[3];
+                string OutFileExt = args[5].Substring(1);
+                string OutBinaryPath = args[4].Replace("{gen_type}", OutFileExt);
+
+                if (ProjType == "application")
+                {
+                    Console.WriteLine("无需操作");
+                }
+
+                Directory.CreateDirectory(GetDirectory(OutIncludePath));
+                Directory.CreateDirectory(GetDirectory(OutBinaryPath));
+                File.Copy(binaryFilePath, OutBinaryPath, true);
+
+                Dictionary<string, HeaderFile> dict = new Dictionary<string, Program.HeaderFile>();
+                List<HeaderFile> list = new List<HeaderFile>();
+
+                foreach (var file in Directory.GetFiles(ProjectPath))
+                    if (file.EndsWith(".h"))
+                    {
+                        var header = new HeaderFile(file);
+                        dict.Add(file, header);
+                        list.Add(header);
+                    }
+                var HasTop = list.Aggregate(false, (bool all, HeaderFile next) => { return all || next.isTop; });
+                if (!HasTop)
+                    Console.WriteLine("[警告]可能出现了环形包含，建议检查代码");
+
+                StreamWriter streamWriter = new StreamWriter(OutIncludePath, false, Encoding.UTF8);
+
+                var topHeaders = list.Where(e => e.isTop);
+                AppendFileToStream(topHeaders, dict, streamWriter);
+
+                var headers = list.Where(e => !e.loaded);
+                Program.AppendFileToStream(headers, dict, streamWriter);
+
+                streamWriter.Close();
+                Console.WriteLine("OK.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("==================================================");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("==================================================");
+                throw;
+            }
+        }
+    }
 }

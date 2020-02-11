@@ -18,35 +18,41 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Utilities.Common.Range.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Utilities.Common.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{73aa5191-6110-4a82-90d8-74a9defdb4c7}</ProjectGuid>
-    <RootNamespace>TestUtilities</RootNamespace>
+    <ProjectGuid>{7eccd508-21b8-43c1-b3e7-b2ab0955275f}</ProjectGuid>
+    <RootNamespace>UtilitiesCommon</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Test.Utilities</ProjectName>
+    <ProjectName>Utilities.Common</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -72,45 +78,45 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
     <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)libraries\lib\$(PlatformShortName)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\$(Configuration)\;$(LibraryWPath)</LibraryWPath>
+    <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
     <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)libraries\lib\$(PlatformShortName)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\$(Configuration)\;$(LibraryWPath)</LibraryWPath>
+    <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
     <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)libraries\lib\$(PlatformShortName)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\$(Configuration)\;$(LibraryWPath)</LibraryWPath>
+    <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(PlatformShortName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
     <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)libraries\lib\$(PlatformShortName)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\$(Configuration)\;$(LibraryWPath)</LibraryWPath>
+    <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>x86;DEBUG;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -119,19 +125,17 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>
-      </Message>
+      <Message>调用生成工具，生成到library目录中</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>x64;DEBUG;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -140,12 +144,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>
-      </Message>
+      <Message>调用生成工具，生成到library目录中</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,7 +156,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>x86;RELEASE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RELEASE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -165,12 +167,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>
-      </Message>
+      <Message>调用生成工具，生成到library目录中</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -179,7 +179,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>x64;RELEASE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RELEASE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -190,29 +190,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>
-      </Message>
+      <Message>调用生成工具，生成到library目录中</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Test.Utilities.Common.Range.cpp" />
-    <ClCompile Include="Test.Utilities.GUID.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.3\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets" Condition="Exists('..\..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.3\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets')" />
   </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.3\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.3\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets'))" />
-  </Target>
 </Project>

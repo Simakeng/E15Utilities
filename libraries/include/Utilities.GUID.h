@@ -100,7 +100,7 @@ namespace Utilities
 		/// <summary>
 		/// 使用一个内存布局上和GUID等价的对象初始化GUID
 		/// <para>
-		///		<b>注意：该对象必须是以 4:2:2:8 的形式存储GUID数据</b>
+		///		@warning 该对象 <b>必须</b> 是以 4:2:2:8 的形式存储GUID数据
 		/// </para>
 		/// <typeparam name="T"> 以 4:2:2:8 的形式存储GUID数据的类型 </typeparam>
 		/// <param name="rhs">GUID对象</param>
@@ -119,7 +119,10 @@ namespace Utilities
 		/// <returns>随机的GUID对象</returns>
 		static GUID New();
 		/// <summary>
-		/// 空的GUID对象({00000000-0000-0000-0000-000000000000})
+		/// 全为 “0” 的 GUID 对象
+		/// <para>
+		/// {00000000-0000-0000-0000-000000000000}
+		/// </para>
 		/// </summary>
 		static const GUID Nil;
 	};

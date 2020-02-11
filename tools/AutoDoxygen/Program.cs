@@ -47,6 +47,7 @@ namespace AutoDoxygen
                 process.Start();
                 process.StandardInput.WriteLine($"cd {path}");
                 process.StandardInput.WriteLine($"git fetch");
+                process.StandardInput.WriteLine($"git pull");
                 process.StandardInput.WriteLine($"exit");
                 var so = process.StandardOutput.ReadToEnd();
                 var eo = process.StandardError.ReadToEnd();

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("AutoDoxygen")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("自动文档生成器")]
+[assembly: AssemblyDescription("自动扫描并检测Git更改并更新文档")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("湖南易遥科技有限公司")]
 [assembly: AssemblyProduct("AutoDoxygen")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright © Hunan Yiyao Technology Co., Ltd. 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

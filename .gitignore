@@ -7,7 +7,7 @@
 **/bin
 
 # 文档生成目录
-docs/
+docs/html
 
 # Nuget包
 packages/

@@ -13,6 +13,8 @@ namespace AutoDoxygen
         /// <returns></returns>
         private static string GetRepoPath()
         {
+            if (repoPath != null)
+                return repoPath;
             var fileName = Process.GetCurrentProcess().MainModule.FileName;
             var start = fileName.IndexOf("GameEngine");
             if (start != -1)
@@ -47,7 +49,7 @@ namespace AutoDoxygen
                 process.Start();
                 process.StandardInput.WriteLine($"cd {path}");
                 process.StandardInput.WriteLine($"git fetch");
-                process.StandardInput.WriteLine($"git pull");
+                process.StandardInput.WriteLine($"git fetch");
                 process.StandardInput.WriteLine($"exit");
                 var so = process.StandardOutput.ReadToEnd();
                 var eo = process.StandardError.ReadToEnd();
@@ -69,7 +71,7 @@ namespace AutoDoxygen
             }
         }
 
-        private static void GenerateDocs() 
+        private static void GenerateDocs()
         {
             try
             {
@@ -105,9 +107,21 @@ namespace AutoDoxygen
         }
 
         private static bool needUpdate = false;
+        private static string repoPath = null;
 
         private static void Main(string[] args)
         {
+            if (args.Length < 1)
+            {
+                var temp = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "autogen.exe");
+                File.Copy(Process.GetCurrentProcess().MainModule.FileName, temp, true);
+                Process.Start(temp, GetRepoPath());
+                return;
+            }
+            else
+            {
+                repoPath = args[0];
+            }
             FileSystemWatcher sw = new FileSystemWatcher();
             sw.Path = GetRepoPath();
             sw.IncludeSubdirectories = true;
@@ -120,7 +134,7 @@ namespace AutoDoxygen
                 while (true)
                 {
                     GetStatus();
-                    Thread.Sleep(1000 * 60 * 1); 
+                    Thread.Sleep(1000 * 60 * 1);
                 }
             });
             GitUpdateThread.Start();
@@ -129,7 +143,7 @@ namespace AutoDoxygen
                 while (true)
                 {
                     Thread.Sleep(1000 * 60 * 1);
-                    if (needUpdate) 
+                    if (needUpdate)
                     {
                         needUpdate = false;
                         GenerateDocs();

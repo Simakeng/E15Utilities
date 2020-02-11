@@ -93,7 +93,7 @@ namespace Utilities::Common
 		/// <summary>
 		/// 迭代器类 此类不可被用户实例化，其仅可以通过 Range::begin() 得到
 		/// </summary>
-		class iterator
+		struct iterator
 		{
 		private:
 			friend class ::Utilities::Common::Range<T>;

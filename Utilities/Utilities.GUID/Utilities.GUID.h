@@ -27,6 +27,8 @@
 
  @{
 
+
+ @}
 */
 
 #ifndef _UTILITIES_GUID_
@@ -133,8 +135,5 @@ namespace Utilities
 	
 }
 
-/**
- @}
-*/
 
 #endif // _UTILITIES_GUID_

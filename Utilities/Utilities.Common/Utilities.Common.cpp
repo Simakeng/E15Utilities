@@ -2,7 +2,7 @@
 #include "Utilities.Common.Range.h"
 namespace Utilities::Common
 {
-	// Ô¤ÊµÀı»¯Ò»²¿·ÖÄ£°å¿â¼ÓËÙ±àÒë
+	// é¢„å®ä¾‹åŒ–ä¸€éƒ¨åˆ†æ¨¡æ¿åº“åŠ é€Ÿç¼–è¯‘
 	template<>
 	class Range<int8_t>;
 	template<>

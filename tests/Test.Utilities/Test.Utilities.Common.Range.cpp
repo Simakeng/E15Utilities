@@ -1,8 +1,8 @@
 /**
 	 @file
-	 @brief Í¨ÓÃÄ£°å¿â Range ¶ÔÏóµÄµ¥Ôª²âÊÔ
+	 @brief å¯¹é€šç”¨æ¨¡æ¿åº“ Utilities::Common::Range å¯¹è±¡çš„å•å…ƒæµ‹è¯•
 
-	 @author Ë¾Âí¿Ó
+	 @author å¸é©¬å‘
 	 @date 2020/2/11
 */
 #include <string>
@@ -18,7 +18,7 @@ using namespace std;
 using namespace Utilities::Common;
 
 /// <summary>
-/// ²âÊÔ»ù±¾¹¦ÄÜ
+/// æµ‹è¯•åŸºæœ¬åŠŸèƒ½
 /// </summary>
 TEST(Utilities_Common_Range, basic)
 {
@@ -34,7 +34,7 @@ TEST(Utilities_Common_Range, basic)
 };
 
 /// <summary>
-/// ²âÊÔ×ª»»ÎªÈİÆ÷¶ÔÏóµÄ¹¦ÄÜ
+/// æµ‹è¯•è½¬æ¢ä¸ºå®¹å™¨å¯¹è±¡çš„åŠŸèƒ½
 /// </summary>
 TEST(Utilities_Common_Range, AssigineToContainer_vector)
 {
@@ -47,7 +47,7 @@ TEST(Utilities_Common_Range, AssigineToContainer_vector)
 }
 
 /// <summary>
-/// ²âÊÔ×ª»»ÎªÈİÆ÷¶ÔÏóµÄ¹¦ÄÜ
+/// æµ‹è¯•è½¬æ¢ä¸ºå®¹å™¨å¯¹è±¡çš„åŠŸèƒ½
 /// </summary>
 TEST(Utilities_Common_Range, AssigineToContainer_deque)
 {

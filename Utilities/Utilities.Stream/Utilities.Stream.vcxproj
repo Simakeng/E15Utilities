@@ -18,12 +18,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Utilities.FileStream.h" />
+    <ClInclude Include="Utilities.Stream.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Utilities.FileStream.cpp" />
+    <ClCompile Include="Utilities.Stream.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{67a4dd0d-688d-4ffb-a15f-d0eb6534a13f}</ProjectGuid>
-    <RootNamespace>UtilitiesGUID</RootNamespace>
+    <ProjectGuid>{9d5f0dfa-d324-498e-8553-7c97959cb5a1}</ProjectGuid>
+    <RootNamespace>UtilitiesStream</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Utilities.GUID</ProjectName>
+    <ProjectName>Utilities.Stream</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -206,12 +214,6 @@
       <AdditionalOptions>/source-charset:utf-8 %(AdditionalOptions)</AdditionalOptions>
     </Bscmake>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Utilities.GUID.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Utilities.GUID.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

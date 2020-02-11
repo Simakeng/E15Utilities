@@ -23,7 +23,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test.Utilities", "tests\Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pack", "tools\Pack\Pack.csproj", "{47A4C04E-3578-4EE5-9002-30CA23D402F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDoxygen", "AutoDoxygen\AutoDoxygen.csproj", "{C3A285F0-CE2D-490C-B859-88E0AC6F025C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDoxygen", "tools\AutoDoxygen\AutoDoxygen.csproj", "{C3A285F0-CE2D-490C-B859-88E0AC6F025C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

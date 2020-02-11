@@ -13,7 +13,7 @@
 	@endcode
 
 	 @author 司马坑
-	 @date 2020/2/10
+	 @date 2020/2/11
 */
 
 /**
@@ -93,7 +93,7 @@ namespace Utilities::Common
 		/// <summary>
 		/// 迭代器类 此类不可被用户实例化，其仅可以通过 Range::begin() 得到
 		/// </summary>
-		class iterator
+		struct iterator
 		{
 		private:
 			friend class ::Utilities::Common::Range<T>;
@@ -147,7 +147,7 @@ namespace Utilities::Common
 			@endcode
 		*/
 		/// <summary>
-		/// 生成一个迭代器对象，该迭代器将指向区间[ begin , end )中的begin
+		/// 生成一个迭代器对象，该迭代器将指向区间 [ begin , end ) 中的begin
 		/// </summary>
 		::Utilities::Common::Range<T>::iterator begin() { return iterator(_begin, _distance); };
 		/**

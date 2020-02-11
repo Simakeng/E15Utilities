@@ -96,7 +96,7 @@ namespace Pack
             {
                 string ProjType = args[0];
                 string binaryFilePath = args[1];
-                string ProjectPath = args[2];
+                string ProjectPath = args[2].Substring(1);
                 string OutIncludePath = args[3];
                 string OutFileExt = args[5].Substring(1);
                 string OutBinaryPath = args[4].Replace("{gen_type}", OutFileExt);

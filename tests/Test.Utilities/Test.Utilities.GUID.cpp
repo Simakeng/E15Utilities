@@ -14,7 +14,6 @@
 #include <Utilities.GUID.h>
 #pragma comment(lib,"Utilities.GUID.lib")
 
-
 using namespace Utilities;
 using namespace std;
 

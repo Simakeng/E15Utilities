@@ -125,7 +125,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
+      <Command>"$(SolutionDir)tools\Pack.exe" "$(OutputType)" "$(TargetPath)" "$(ProjectDir)@" "$(SolutionDir)libraries\include\$(ProjectName).h" "$(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName)" "$(TargetExt)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
@@ -144,7 +144,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
+      <Command>"$(SolutionDir)tools\Pack.exe" "$(OutputType)" "$(TargetPath)" "$(ProjectDir)@" "$(SolutionDir)libraries\include\$(ProjectName).h" "$(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName)" "$(TargetExt)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
@@ -167,7 +167,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
+      <Command>"$(SolutionDir)tools\Pack.exe" "$(OutputType)" "$(TargetPath)" "$(ProjectDir)@" "$(SolutionDir)libraries\include\$(ProjectName).h" "$(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName)" "$(TargetExt)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>
@@ -190,7 +190,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)tools\Pack.exe $(OutputType) $(TargetPath) $(ProjectDir) $(SolutionDir)libraries\include\$(ProjectName).h $(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName) $(TargetExt)</Command>
+      <Command>"$(SolutionDir)tools\Pack.exe" "$(OutputType)" "$(TargetPath)" "$(ProjectDir)@" "$(SolutionDir)libraries\include\$(ProjectName).h" "$(SolutionDir)libraries\{gen_type}\$(PlatformShortName)\$(Configuration)\$(TargetFileName)" "$(TargetExt)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>调用生成工具，生成到library目录中</Message>

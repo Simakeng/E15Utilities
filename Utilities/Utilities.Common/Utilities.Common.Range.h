@@ -147,7 +147,7 @@ namespace Utilities::Common
 			@endcode
 		*/
 		/// <summary>
-		/// 生成一个迭代器对象，该迭代器将指向区间[ begin , end )中的begin
+		/// 生成一个迭代器对象，该迭代器将指向区间 [ begin , end ) 中的begin
 		/// </summary>
 		::Utilities::Common::Range<T>::iterator begin() { return iterator(_begin, _distance); };
 		/**

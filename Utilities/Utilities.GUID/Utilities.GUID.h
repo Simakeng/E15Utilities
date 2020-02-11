@@ -29,6 +29,9 @@
 
 */
 
+#ifndef _UTILITIES_GUID_
+#define _UTILITIES_GUID_ __FILE__
+
 #pragma once
 #include <string>
 namespace Utilities
@@ -133,3 +136,5 @@ namespace Utilities
 /**
  @}
 */
+
+#endif // _UTILITIES_GUID_

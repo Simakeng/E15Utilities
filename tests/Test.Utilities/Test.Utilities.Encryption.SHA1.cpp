@@ -1,11 +1,11 @@
 /**
- @file
- @brief 对 Utilities::GUID 进行单元测试
-
- 这个文件里面是通过几组函数对 Utilities::GUID 进行功能上的单元测试
-
- @author 司马坑
- @date 2020/2/10
+	@file
+	@brief 对 Utilities::Encryption::SHA1 进行单元测试
+	
+	这个文件里面是通过几组函数对 Utilities::Encryption::SHA1 进行功能上的单元测试
+	
+	@author iriszero
+	@date 2020/2/12
 */
 
 #include <string>

@@ -175,6 +175,18 @@ namespace Utilities
 
 namespace Utilities
 {
+	/**
+	
+	使用方式：
+
+	@code
+		auto sr = StreamReader(stream);
+		char ch = sr.read<char>();
+		int i = sr.read<int>();
+		float f = sr.read<float>();
+		double d = sr.read<double>();
+	@endcode
+	*/
 	/// <summary>
 	/// 流读取器对象
 	/// </summary>

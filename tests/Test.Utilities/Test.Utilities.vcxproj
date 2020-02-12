@@ -207,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.Utilities.Common.Range.cpp" />
+    <ClCompile Include="Test.Utilities.Encryption.CRC32.cpp" />
     <ClCompile Include="Test.Utilities.Encryption.SHA1.cpp" />
     <ClCompile Include="Test.Utilities.FileStream.cpp" />
     <ClCompile Include="Test.Utilities.GUID.cpp" />

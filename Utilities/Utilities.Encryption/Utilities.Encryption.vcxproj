@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Utilities.Encryption.CRC32.cpp" />
     <ClCompile Include="Utilities.Encryption.SHA1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Utilities.Encryption.CRC32.h" />
     <ClInclude Include="Utilities.Encryption.SHA1.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -211,7 +211,7 @@ namespace Utilities::Encryption
 		core = Core();
 		core.AppendData(pData, size);
 	}
-
+	
 	SHA1::Core::hash_type SHA1::Get() const
 	{
 		return core.Get();

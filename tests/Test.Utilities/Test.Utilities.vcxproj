@@ -206,6 +206,8 @@
     <ClCompile Include="Test.Utilities.Encryption.SHA1.cpp" />
     <ClCompile Include="Test.Utilities.FileStream.cpp" />
     <ClCompile Include="Test.Utilities.GUID.cpp" />
+    <ClCompile Include="Test.Utilities.StreamReader.cpp" />
+    <ClCompile Include="Test.Utilities.StreamWriter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

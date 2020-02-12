@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Utilities.StreamReader.h" />
     <ClInclude Include="Utilities.FileStream.h" />
     <ClInclude Include="Utilities.Stream.h" />
+    <ClInclude Include="Utilities.StreamWriter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utilities.FileStream.cpp" />

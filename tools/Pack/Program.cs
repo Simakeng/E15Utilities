@@ -32,7 +32,11 @@ namespace Pack
                 }
             }
         }
-
+        public static void SetReadOnly(string fileName, bool isReadOnly = true) 
+        {
+            FileInfo fi = new FileInfo(fileName);
+            fi.IsReadOnly = isReadOnly;
+        }
         public static string GetDirectory(string fileName)
         {
             var start = fileName.LastIndexOf('\\');
@@ -136,6 +140,8 @@ namespace Pack
                 if (!HasTop)
                     Console.WriteLine("[警告]可能出现了环形包含，建议检查代码");
 
+                if (File.Exists(OutIncludePath))
+                    SetReadOnly(OutIncludePath, false);
                 StreamWriter streamWriter = new StreamWriter(OutIncludePath, false, Encoding.UTF8);
 
                 var topHeaders = list.Where(e => e.isTop);
@@ -145,6 +151,7 @@ namespace Pack
                 Program.AppendFileToStream(headers, dict, streamWriter);
 
                 streamWriter.Close();
+                SetReadOnly(OutIncludePath);
                 Console.WriteLine("OK.");
             }
             catch (Exception ex)

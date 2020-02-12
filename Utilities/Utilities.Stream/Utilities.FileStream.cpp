@@ -79,6 +79,11 @@ namespace Utilities
 		if (fp != nullptr)
 			fclose(fp);
 	}
+	bool FileStream::IsVaild()
+	{
+		auto fp = reinterpret_cast<FILE*>(handle);
+		return fp != nullptr;
+	}
 	uint64_t FileStream::GetLength()
 	{
 		auto fp = reinterpret_cast<FILE*>(handle);
@@ -108,7 +113,7 @@ namespace Utilities
 		auto fp = reinterpret_cast<FILE*>(handle);
 		if (fp != nullptr)
 		{
-			_fseeki64(fp, SEEK_SET, pos);
+			_fseeki64(fp, static_cast<long long>(pos), SEEK_SET);
 			return;
 		}
 		else
@@ -119,7 +124,7 @@ namespace Utilities
 		auto fp = reinterpret_cast<FILE*>(handle);
 		if (fp != nullptr)
 		{
-			_fseeki64(fp, SEEK_CUR, offset);
+			_fseeki64(fp, static_cast<long long>(offset), SEEK_CUR);
 			return;
 		}
 		else

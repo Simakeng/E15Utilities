@@ -16,11 +16,11 @@
 	- 已完成
 		- Utilities::Stream 通用IO流
 		- Utilities::FileStream 文件流
+		- Utiliteis::StreamWriter 流读取器
+		- Utiliteis::StreamReader 流写入器
 	- 计划中
 		- Utilities::MemoryStream 内存流
 		- Utilities::NetworkStream 网络流
-		- Utiliteis::StreamWriter 流读取器
-		- Utiliteis::StreamReader 流写入器
 */
 
 #include <Utilities.h>

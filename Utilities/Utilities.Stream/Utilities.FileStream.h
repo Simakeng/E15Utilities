@@ -22,7 +22,7 @@ namespace Utilities
 		/// <param name="fileName">文件名</param>
 		/// <param name="ioType">操作类型</param>
 		/// <param name="IstextMode">是否以文本模式打开</param>
-		FileStream(const wchar_t* fileName , const Type& ioType, bool IstextMode = true);
+		FileStream(const wchar_t* fileName, const Type& ioType, bool IstextMode = true);
 		/// <summary>
 		/// 析构函数
 		/// </summary>
@@ -44,6 +44,10 @@ namespace Utilities
 		/// 关闭流对象
 		/// </summary>
 		virtual void Close() override;
+		/// <summary>
+		/// 检测流对象是否可用
+		/// </summary>
+		virtual bool IsVaild() override;
 	public:
 		/// <summary>
 		/// 获取文件流的长度

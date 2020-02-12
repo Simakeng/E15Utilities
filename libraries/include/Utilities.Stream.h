@@ -24,11 +24,11 @@
 	- 已完成
 		- Utilities::Stream 通用IO流
 		- Utilities::FileStream 文件流
+		- Utiliteis::StreamWriter 流读取器
+		- Utiliteis::StreamReader 流写入器
 	- 计划中
 		- Utilities::MemoryStream 内存流
 		- Utilities::NetworkStream 网络流
-		- Utiliteis::StreamWriter 流读取器
-		- Utiliteis::StreamReader 流写入器
 */
 
 #include <Utilities.h>
@@ -74,7 +74,15 @@ namespace Utilities
 		/// <param name="len">要写入的数据长度</param>
 		/// <param name="data">数据</param>
 		virtual void Write(size_t len,const void* data) = 0;
+		/// <summary>
+		/// 关闭流对象 终止通讯
+		/// </summary>
 		virtual void Close() = 0;
+		/// <summary>
+		/// 获取当前流的可操作性
+		/// </summary>
+		/// <returns>可操作 : true | 不可操作 : false</returns>
+		virtual bool IsVaild() = 0;
 	private:
 		Type streamType = Type::Unkonwn;
 	public:
@@ -96,7 +104,7 @@ namespace Utilities
 		/// <param name="fileName">文件名</param>
 		/// <param name="ioType">操作类型</param>
 		/// <param name="IstextMode">是否以文本模式打开</param>
-		FileStream(const wchar_t* fileName , const Type& ioType, bool IstextMode = true);
+		FileStream(const wchar_t* fileName, const Type& ioType, bool IstextMode = true);
 		/// <summary>
 		/// 析构函数
 		/// </summary>
@@ -118,6 +126,10 @@ namespace Utilities
 		/// 关闭流对象
 		/// </summary>
 		virtual void Close() override;
+		/// <summary>
+		/// 检测流对象是否可用
+		/// </summary>
+		virtual bool IsVaild() override;
 	public:
 		/// <summary>
 		/// 获取文件流的长度
@@ -151,4 +163,119 @@ namespace Utilities
 	private:
 		Handle handle = nullptr;
 	};
+}
+#pragma once
+/**
+ @file
+ @brief 通用IO流 StreamReader 接口定义及实现
+
+ @author 司马坑
+ @date 2020/2/12
+*/
+
+namespace Utilities
+{
+	/// <summary>
+	/// 流读取器对象
+	/// </summary>
+	/// <typeparam name="StreamType">实例化的流类型</typeparam>
+	template<typename StreamType>
+	class StreamReader
+	{
+	private:
+		StreamType& rs;
+	public:
+		StreamReader(StreamType& stream) : rs(stream) { };
+		~StreamReader() { };
+		/// <summary>
+		/// 从流中读取指定类型的数据并返回
+		/// </summary>
+		template<typename DataType>
+		DataType Read()
+		{
+			static_assert(std::is_pod_v<DataType>, "Object must be pod!");
+			DataType t;
+			rs.Read(sizeof(DataType), &t);
+			return t;
+		}
+	};
+
+#ifdef _INC_STDIO
+	template<>
+	class StreamReader<FILE*>
+	{
+	private:
+		FILE* rs;
+	public:
+		StreamReader(FILE* stream) : rs(stream) { };
+		~StreamReader() {};
+		template<typename DataType>
+		DataType Read()
+		{
+			static_assert(std::is_pod_v<DataType>, "Object must be pod!");
+			DataType t;
+			fread(&t, 1, sizeof(DataType), rs);
+			return t;
+		}
+	};
+#endif // _INC_STDIO
+
+
+}
+#pragma once
+/**
+ @file
+ @brief ͨ��IO�� StreamWriter �ӿڶ��弰ʵ��
+
+ @author ˾���
+ @date 2020/2/12
+*/
+
+namespace Utilities
+{
+	/// <summary>
+	/// ����ȡ������
+	/// </summary>
+	/// <typeparam name="StreamType">ʵ������������</typeparam>
+	template<typename StreamType>
+	class StreamWriter
+	{
+	private:
+		StreamType& rs;
+	public:
+		StreamWriter(StreamType& stream) : rs(stream) { };
+		~StreamWriter() { };
+		/// <summary>
+		/// ������д������
+		/// </summary>
+		template<typename DataType>
+		void Write(const DataType& obj)
+		{
+			static_assert(std::is_pod_v<DataType>, "Object must be pod!");
+			rs.Write(sizeof(DataType), &obj);
+		}
+	};
+
+#ifdef _INC_STDIO
+	template<>
+	class StreamWriter<FILE*>
+	{
+	private:
+		FILE* rs;
+	public:
+		StreamWriter(FILE* stream) : rs(stream) { };
+		~StreamWriter() { };
+		/// <summary>
+		/// ������д������
+		/// </summary>
+		template<typename DataType>
+		void Write(const DataType& obj)
+		{
+			static_assert(std::is_pod_v<DataType>, "Object must be pod!");
+			fwrite(&obj, 1, sizeof(DataType), rs);
+		}
+	};
+#endif // _INC_STDIO
+
+
 }

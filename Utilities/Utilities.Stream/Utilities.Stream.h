@@ -66,7 +66,15 @@ namespace Utilities
 		/// <param name="len">要写入的数据长度</param>
 		/// <param name="data">数据</param>
 		virtual void Write(size_t len,const void* data) = 0;
+		/// <summary>
+		/// 关闭流对象 终止通讯
+		/// </summary>
 		virtual void Close() = 0;
+		/// <summary>
+		/// 获取当前流的可操作性
+		/// </summary>
+		/// <returns>可操作 : true | 不可操作 : false</returns>
+		virtual bool IsVaild() = 0;
 	private:
 		Type streamType = Type::Unkonwn;
 	public:

@@ -53,7 +53,7 @@ namespace Utilities
 	public:
 		Stream(Stream&& rhs) noexcept;
 		Stream(const Type& _streamType) noexcept;
-		virtual ~Stream() = 0;
+		virtual ~Stream();
 		/// <summary>
 		/// 流对象读取接口
 		/// </summary>

@@ -76,6 +76,7 @@ namespace Pack
                                     dict[subheaderPath].loaded = true;
                                     stack.Push(sr);
                                     stack.Push(new StreamReader(subheaderPath, Encoding.UTF8));
+                                    break;
                                 }
                             }
                             else

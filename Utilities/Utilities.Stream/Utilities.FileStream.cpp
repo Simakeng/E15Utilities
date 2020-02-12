@@ -14,6 +14,9 @@ namespace Utilities
 {
 	FileStream::FileStream(const wchar_t* fileName, const Type& ioType, bool isTextMode) : Stream(ioType)
 	{
+		//! @todo 使用_waccess函数进行可访问性验证并抛出异常
+		// https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/access-waccess?view=vs-2019
+
 		FILE* fp = nullptr;
 		const wchar_t* mode = nullptr;
 		switch (ioType)

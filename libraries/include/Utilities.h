@@ -1,4 +1,13 @@
-﻿/**
+﻿#pragma once
+
+namespace Utilities 
+{
+	/// <summary>
+	/// 获取当前代码库的版本信息
+	/// </summary>
+	const char* GetVersion();
+}
+/**
  @file
  @brief 通用编程库命名空间 类型定义
 
@@ -20,13 +29,4 @@ namespace Utilities
     using u8string = std::string;       //!< UTF-8字符串类型
 	using Exception = std::exception;   //!< 异常类型
     using Handle = void*;               //!< 句柄类型
-}
-#pragma once
-
-namespace Utilities 
-{
-	/// <summary>
-	/// 获取当前代码库的版本信息
-	/// </summary>
-	const char* GetVersion();
 }

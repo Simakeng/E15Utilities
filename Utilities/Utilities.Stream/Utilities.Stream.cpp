@@ -15,3 +15,8 @@ Utilities::Stream::Stream(Stream&& rhs) noexcept : streamType(rhs.streamType)
 
 Utilities::Stream::Stream(const Type& _streamType) noexcept : streamType(_streamType) {}
 
+Utilities::Stream::~Stream()
+{
+
+}
+

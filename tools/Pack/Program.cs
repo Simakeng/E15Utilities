@@ -120,6 +120,17 @@ namespace Pack
                         dict.Add(file, header);
                         list.Add(header);
                     }
+                foreach (var item in dict)
+                {
+                    var path = item.Key;
+                    var file = item.Value;
+                    foreach (var sub in file.subHeaders) 
+                    {
+                        if (dict.ContainsKey(sub))
+                            dict[sub].isTop = false;
+                    }
+                }
+
                 var HasTop = list.Aggregate(false, (bool all, HeaderFile next) => { return all || next.isTop; });
                 if (!HasTop)
                     Console.WriteLine("[警告]可能出现了环形包含，建议检查代码");

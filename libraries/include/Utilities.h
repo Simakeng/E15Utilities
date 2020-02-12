@@ -26,7 +26,7 @@ namespace Utilities
 namespace Utilities 
 {
 	/// <summary>
-	/// ��ȡ��ǰ�����İ汾��Ϣ
+	/// 获取当前代码库的版本信息
 	/// </summary>
 	const char* GetVersion();
 }

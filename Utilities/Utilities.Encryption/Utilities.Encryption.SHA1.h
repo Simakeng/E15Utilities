@@ -14,7 +14,7 @@
 */
 
 /**
-	@defgroup Utilities_Common Utilities::Commom 通用模板库
+	@defgroup Utilities_Encryption Utilities::Encryption 通用加密算法库
 	该模块包含了通用加密算法类
 	- 列表
 		- Utilities::Encryption::SHA1

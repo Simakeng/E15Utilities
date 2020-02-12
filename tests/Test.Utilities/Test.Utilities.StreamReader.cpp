@@ -1,10 +1,10 @@
 /**
  @file
- @brief ¶Ô Utilities::StreamReader ½øĞĞµ¥Ôª²âÊÔ
+ @brief å¯¹ Utilities::StreamReader è¿›è¡Œå•å…ƒæµ‹è¯•
 
- Õâ¸öÎÄ¼şÀïÃæÊÇÍ¨¹ı¼¸×éº¯Êı¶Ô Utilities::StreamReader ½øĞĞ¹¦ÄÜÉÏµÄµ¥Ôª²âÊÔ
+ è¿™ä¸ªæ–‡ä»¶é‡Œé¢æ˜¯é€šè¿‡å‡ ç»„å‡½æ•°å¯¹ Utilities::StreamReader è¿›è¡ŒåŠŸèƒ½ä¸Šçš„å•å…ƒæµ‹è¯•
 
- @author Ë¾Âí¿Ó
+ @author å¸é©¬å‘
  @date 2020/2/12
 */
 #define _CRT_SECURE_NO_WARNINGS

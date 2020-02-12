@@ -1,10 +1,10 @@
 /**
  @file
- @brief ¶Ô Utilities::StreamWriter ½øĞĞµ¥Ôª²âÊÔ
+ @brief å¯¹ Utilities::StreamWriter è¿›è¡Œå•å…ƒæµ‹è¯•
 
- Õâ¸öÎÄ¼şÀïÃæÊÇÍ¨¹ı¼¸×éº¯Êı¶Ô Utilities::StreamWriter ½øĞĞ¹¦ÄÜÉÏµÄµ¥Ôª²âÊÔ
+ è¿™ä¸ªæ–‡ä»¶é‡Œé¢æ˜¯é€šè¿‡å‡ ç»„å‡½æ•°å¯¹ Utilities::StreamWriter è¿›è¡ŒåŠŸèƒ½ä¸Šçš„å•å…ƒæµ‹è¯•
 
- @author Ë¾Âí¿Ó
+ @author å¸é©¬å‘
  @date 2020/2/12
 */
 #define _CRT_SECURE_NO_WARNINGS
@@ -54,7 +54,7 @@ TEST(Utilties_StreamWriter, STDIO)
 		sw.Write(buf[i]);
 	}
 	fclose(fs);
-
+	
 	FILE* fp = _wfopen(fileName, L"rb");
 	for (auto i = 0; i < size; i++)
 	{
@@ -64,4 +64,52 @@ TEST(Utilties_StreamWriter, STDIO)
 	}
 	fclose(fp);
 
+}
+
+TEST(Utilties_StreamWriter, Text)
+{
+	wchar_t fileName[L_tmpnam];
+	_wtmpnam(fileName);
+
+	const auto str = u8"å¡å°”è¾¾å¤©ä¸‹ç¬¬ä¸€ ï¼(";
+	const auto len = strlen(str);
+	FileStream fs = FileStream(fileName, Stream::Type::WriteOnly);
+	StreamWriter sw = StreamWriter(fs);
+	sw.Write(str);
+	fs.Close();
+
+
+	auto buf = new char[len + 1];
+	buf[len] = 0;
+	FILE* fp = _wfopen(fileName, L"r");
+	fread(buf, 1, len, fp);
+	fclose(fp);
+
+	EXPECT_STREQ(buf, str);
+
+	delete[] buf;
+}
+
+TEST(Utilties_StreamWriter, String)
+{
+	wchar_t fileName[L_tmpnam];
+	_wtmpnam(fileName);
+
+	const auto str = u8string( u8"å¡å°”è¾¾å¤©ä¸‹ç¬¬ä¸€ ï¼(");
+	const auto len = str.length();
+	FileStream fs = FileStream(fileName, Stream::Type::WriteOnly);
+	StreamWriter sw = StreamWriter(fs);
+	sw.Write(str);
+	fs.Close();
+
+
+	auto buf = new char[len + 1];
+	buf[len] = 0;
+	FILE* fp = _wfopen(fileName, L"r");
+	fread(buf, 1, len, fp);
+	fclose(fp);
+
+	EXPECT_STREQ(buf, str.c_str());
+
+	delete[] buf;
 }

@@ -10,6 +10,18 @@
 
 namespace Utilities
 {
+	/**
+	
+	使用方式：
+
+	@code
+		auto sr = StreamReader(stream);
+		char ch = sr.read<char>();
+		int i = sr.read<int>();
+		float f = sr.read<float>();
+		double d = sr.read<double>();
+	@endcode
+	*/
 	/// <summary>
 	/// 流读取器对象
 	/// </summary>
@@ -22,6 +34,16 @@ namespace Utilities
 	public:
 		StreamReader(StreamType& stream) : rs(stream) { };
 		~StreamReader() { };
+		/**
+			例子：
+			@code
+				auto sr = StreamReader(stream);
+				char ch = sr.read<char>();
+				int i = sr.read<int>();
+				float f = sr.read<float>();
+				double d = sr.read<double>();
+			@endcode
+		*/
 		/// <summary>
 		/// 从流中读取指定类型的数据并返回
 		/// </summary>

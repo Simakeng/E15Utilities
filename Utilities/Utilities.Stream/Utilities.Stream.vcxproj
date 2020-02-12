@@ -27,6 +27,8 @@
   <ItemGroup>
     <ClCompile Include="Utilities.FileStream.cpp" />
     <ClCompile Include="Utilities.Stream.cpp" />
+    <ClCompile Include="Utilities.StreamReader.cpp" />
+    <ClCompile Include="Utilities.StreamWriter.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

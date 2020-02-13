@@ -1,7 +1,7 @@
 #pragma once
 
 /// <summary>
-/// 引擎核心组件命名空间
+/// 寮曟搸鏍稿績缁勪欢鍛藉悕绌洪棿
 /// </summary>
 namespace Core 
 {

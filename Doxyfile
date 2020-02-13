@@ -831,6 +831,9 @@ WARN_LOGFILE           =
 
 INPUT                  = .\ \
                          .\tools\ \
+                         .\Core\Core\ \
+                         .\Core\Core.Entitiy\ \
+                         .\Core\Core.Component\ \
                          .\tests\Test.Utilities\ \
                          .\Utilities\Utilities\ \
                          .\Utilities\Utilities.GUID\ \

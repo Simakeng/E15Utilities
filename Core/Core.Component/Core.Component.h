@@ -1,11 +1,11 @@
 /**
 	 @file
-	 @brief ºËĞÄ¿â IComponent ÈİÆ÷µÄ½Ó¿Ú¶¨Òå
+	 @brief æ ¸å¿ƒåº“ IComponent å®¹å™¨çš„æ¥å£å®šä¹‰
 
-	 Õâ¸öÎÄ¼şÊÇÒıÇæºËĞÄ¿â IComponent µÄ½Ó¿Ú¶¨Òå
+	 è¿™ä¸ªæ–‡ä»¶æ˜¯å¼•æ“æ ¸å¿ƒåº“ IComponent çš„æ¥å£å®šä¹‰
 
-	 @author Ë¾Âí¿Ó
-	 @date 2020/2/13
+	 @author å¸é©¬å‘
+	 @date 2020/2/13 
 */
 #pragma once
 #include <Utilities.GUID.h>
@@ -15,7 +15,7 @@ namespace Core
 	using GUID = Utilities::GUID;
 
 	/// <summary>
-	/// ÃèÊö×é¼şÀàĞÍ RTTI µÄ¶ÔÏó
+	/// æè¿°ç»„ä»¶ç±»å‹ RTTI çš„å¯¹è±¡
 	/// </summary>
 	class ComponentType
 	{
@@ -30,17 +30,18 @@ namespace Core
 		const GUID typeID;
 	public:
 		/// <summary>
-		/// »ñÈ¡¸ÃÀàĞÍµÄÃû³Æ
+		/// è·å–è¯¥ç±»å‹çš„åç§°
 		/// </summary>
 		inline const char* GetTypeName() { return compName; };
 		/// <summary>
-		/// »ñÈ¡¸ÃÀàĞÍµÄ GUID
+		/// è·å–è¯¥ç±»å‹çš„ GUID
 		/// </summary>
 		inline const GUID& GetTypeGUID() { return typeID; };
 	public:
 		friend class IComponent;
 	};
 	/**
+		è¿™ä¸ªæ˜¯ä¸€ä¸ªå¾ˆç®€å•çš„ä¾‹å­ï¼š
 		@code
 			class HelloWorld : public Core::IComponent
 			{
@@ -53,17 +54,14 @@ namespace Core
 				const char* GetStr() { return str; }
 			};
 		@endcode
+		@see Core::Components::HelloWorld
 	*/
 	/// <summary>
-	/// ×é¼ş½Ó¿Ú
-	/// <para>
-	/// ÓÃ»§Ğè¼Ì³Ğ¸ÃÀàÊµÏÖ¾ßÌåµÄ×é¼ş¹¦ÄÜ
-	/// 
-	/// Õâ¸öÊÇÒ»¸öºÜ¼òµ¥µÄÀı×Ó£º
-	/// @see Core::Components::HelloWorld
-	/// 
-	/// </para>
+	/// ç»„ä»¶æ¥å£
 	/// </summary>
+	/// <para>
+	/// ç”¨æˆ·éœ€ç»§æ‰¿è¯¥ç±»å®ç°å…·ä½“çš„ç»„ä»¶åŠŸèƒ½
+	/// </para>
 	class IComponent
 	{
 	protected:

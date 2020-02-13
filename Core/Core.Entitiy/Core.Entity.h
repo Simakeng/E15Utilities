@@ -31,7 +31,7 @@ namespace Core
 		/// <summary>
 		/// 原位构造一个 Entity 对象
 		/// </summary>
-		Entity(Entity&& rhs);
+		Entity(Entity&& rhs) noexcept;
 	public:
 		/**
 			举例:
@@ -72,7 +72,7 @@ namespace Core
 		/// 如果该实体中存在，则返回改组件的引用
 		/// @warning 对空引用的<b>任何</b>访问操作都是未定义行为 
 		/// </returns>
-		View<IComponent> GetCompRef(const GUID& compId)
+		View<IComponent> GetCompView(const GUID& compId)
 		{
 			// 找不到则返回一个空的Ref
 			if (comps.find(compId) == comps.end())

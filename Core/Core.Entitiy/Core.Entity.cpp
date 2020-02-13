@@ -20,7 +20,7 @@ namespace Core
 	{
 	}
 
-	Entity::Entity(Entity&& rhs)
+	Entity::Entity(Entity&& rhs) noexcept
 	{
 		rhs.comps.swap(this->comps);
 	}

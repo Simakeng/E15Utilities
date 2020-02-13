@@ -1,4 +1,14 @@
-﻿#pragma once
+﻿/**
+	 @file
+	 @brief 核心库 Entity 容器的接口定义
+
+	 这个文件是引擎核心库 Entity 的接口定义
+
+	 @author 司马坑
+	 @date 2020/2/13
+*/ 
+
+#pragma once
 
 #include <memory>
 #include <unordered_map>
@@ -8,6 +18,9 @@
 
 namespace Core
 {
+	/// <summary>
+	/// 实体容器
+	/// </summary>
 	class Entity
 	{
 	public:
@@ -15,7 +28,10 @@ namespace Core
 		~Entity();
 	public:
 		Entity(const Entity&) = delete;
-		Entity(Entity&& rhs);
+		/// <summary>
+		/// 原位构造一个 Entity 对象
+		/// </summary>
+		Entity(Entity&& rhs) noexcept;
 	public:
 		/**
 			举例:
@@ -47,7 +63,16 @@ namespace Core
 	private:
 		std::unordered_map<GUID, std::shared_ptr<IComponent>> comps;
 	public:
-		View<IComponent> GetCompRef(const GUID& compId)
+		/// <summary>
+		/// 根据组件的 GUID 从实体中获取组件的引用 
+		/// </summary>
+		/// <param name="compId">组件 GUID </param>
+		/// <returns>
+		/// 如果该实体中不存在 GUID 为 compId 的组件，返回值为空引用
+		/// 如果该实体中存在，则返回改组件的引用
+		/// @warning 对空引用的<b>任何</b>访问操作都是未定义行为 
+		/// </returns>
+		View<IComponent> GetCompView(const GUID& compId)
 		{
 			// 找不到则返回一个空的Ref
 			if (comps.find(compId) == comps.end())

@@ -834,6 +834,7 @@ INPUT                  = .\ \
                          .\Core\Core\ \
                          .\Core\Core.Entitiy\ \
                          .\Core\Core.Component\ \
+                         .\tests\Test.Core\ \
                          .\tests\Test.Utilities\ \
                          .\Utilities\Utilities\ \
                          .\Utilities\Utilities.GUID\ \

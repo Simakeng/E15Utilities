@@ -36,12 +36,16 @@
 
 #pragma once
 #include <string>
+#include <cstring>
 namespace Utilities
 {
+
+	namespace _private { struct _GUID_Hash_View; }
+
 	/// <summary>
 	/// 全局唯一标识符对象
 	/// </summary>
-	class GUID
+	class [[nodiscard]] GUID
 	{
 	public:
 		GUID() = delete;
@@ -52,6 +56,12 @@ namespace Utilities
 		/// </summary>
 		/// <param name="rhs">字符串对象</param>
 		GUID(const std::string& rhs);
+		/**
+			例如:
+			@code
+				GUID guid = GUID("62b164f2-911f-425f-bef9-6e6d5e9bcc6c");
+			@endcode
+		*/
 		/// <summary>
 		/// 使用一个字符串数组来初始化一个GUID对象
 		/// <para>
@@ -64,29 +74,29 @@ namespace Utilities
 		/// <param name="rhs">字符串数组</param>
 		GUID(const char* rhs);
 		//! 复制构造函数
-		GUID(const GUID& rhs);
+		GUID(const GUID& rhs) noexcept;
 		//! 移动构造函数
-		GUID(GUID&& rhs);
+		GUID(GUID&& rhs) noexcept;
 	public:
 		//! 复制赋值函数
 		GUID& operator=(const std::string& rhs);
 		//! 复制赋值函数
-		GUID& operator=(const GUID& rhs);
+		GUID& operator=(const GUID& rhs) noexcept;
 		//! 复制赋值函数
-		GUID& operator=(GUID&& rhs);
+		GUID& operator=(GUID&& rhs) noexcept;
 	public:
 		/// <summary>
 		/// 判断两个GUID对象是否相等
 		/// </summary>
 		/// <param name="rhs">等号右边的GUID对象</param>
 		/// <returns>bool</returns>
-		bool operator==(const GUID& rhs)const;
+		bool operator==(const GUID& rhs)const noexcept;
 		/// <summary>
 		/// 判断两个GUID对象是否不相等
 		/// </summary>
 		/// <param name="rhs">不等号右边的GUID对象</param>
 		/// <returns>bool</returns>
-		bool operator!=(const GUID& rhs)const;
+		bool operator!=(const GUID& rhs)const noexcept;
 	public:
 		//! 字符串转换函数
 		operator std::string() const;
@@ -100,12 +110,12 @@ namespace Utilities
 			uint16_t data3 = 0;
 			uint64_t data4 = 0;
 		} datas;
-		static_assert(sizeof(decltype(datas)) == 16, "GUID data size is not 128bit, please check your compilier settings");
+		static_assert(sizeof(decltype(datas)) == 16, "GUID data size is not 128bit, please check your compilier settings！");
 	public:
 		/// <summary>
 		/// 使用一个内存布局上和GUID等价的对象初始化GUID
 		/// <para>
-		///		@warning 该对象 <b>必须</b> 是以 4:2:2:8 的形式存储GUID数据
+		///		@warning 该对象 <b>必须</b> 是以 4:2:2:8 的形式存储GUID数据 并且其长度 <b>必须</b> 是 16 字节
 		/// </para>
 		/// <typeparam name="T"> 以 4:2:2:8 的形式存储GUID数据的类型 </typeparam>
 		/// <param name="rhs">GUID对象</param>
@@ -130,10 +140,43 @@ namespace Utilities
 		/// </para>
 		/// </summary>
 		static const GUID Nil;
+
+		//! 给 std::hash<Utilities::GUID> 开的后门
+		friend struct _private::_GUID_Hash_View;
+
 	};
 
+	namespace _private
+	{
+		struct _GUID_Hash_View
+		{
+			auto& operator()(const GUID& rhs)
+			{
+				return rhs.datas;
+			}
+		};
+	}
 	
 }
 
+namespace std
+{
+	template <>
+	struct hash<Utilities::GUID>
+	{
+		std::size_t operator()(const Utilities::GUID& key) const
+		{
+			using std::size_t;
+			using std::hash;
+			auto& datas = Utilities::_private::_GUID_Hash_View()(key);
+			auto p = reinterpret_cast<const size_t*>(&datas);
+			constexpr auto l = sizeof(datas) / sizeof(size_t);
+			size_t r = 0;
+			for (auto i = 0; i < l; i++)
+				r ^= p[i];
+			return r;
+		}
+	};
+}
 
 #endif // _UTILITIES_GUID_

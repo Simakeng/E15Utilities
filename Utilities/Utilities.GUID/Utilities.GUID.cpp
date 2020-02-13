@@ -114,9 +114,9 @@ namespace Utilities
 	GUID::GUID(const char * rhs) : GUID(std::string(rhs))
 	{
 	}
-	GUID::GUID(const GUID & rhs)
+	GUID::GUID(const GUID & rhs) noexcept
 		:datas(rhs.datas) { }
-	GUID::GUID(GUID && rhs)
+	GUID::GUID(GUID && rhs) noexcept
 	{
 		this->datas = rhs.datas;
 		rhs = Nil;
@@ -163,19 +163,19 @@ namespace Utilities
 		return *this;
 	}
 
-	GUID & GUID::operator=(const GUID & rhs)
+	GUID & GUID::operator=(const GUID & rhs) noexcept
 	{
 		this->datas = rhs.datas;
 		return *this;
 	}
-	GUID & GUID::operator=(GUID && rhs)
+	GUID & GUID::operator=(GUID && rhs) noexcept
 	{
 		this->datas = rhs.datas;
 		rhs = Nil;
 		return *this;
 	}
 
-	bool GUID::operator==(const GUID & rhs) const
+	bool GUID::operator==(const GUID & rhs) const noexcept
 	{
 		return 
 			datas.data1 == rhs.datas.data1 &&
@@ -184,7 +184,7 @@ namespace Utilities
 			datas.data4 == rhs.datas.data4 ;
 	}
 
-	bool GUID::operator!=(const GUID & rhs) const
+	bool GUID::operator!=(const GUID & rhs) const noexcept
 	{
 		return !operator==(rhs);
 	}

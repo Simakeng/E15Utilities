@@ -18,35 +18,41 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{|#projguid#|}</ProjectGuid>
-    <RootNamespace>|#projnamespace#|</RootNamespace>
+    <ProjectGuid>{bb1362e4-6cac-4516-8ed1-67b6a586b832}</ProjectGuid>
+    <RootNamespace>Core</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>|#projname#|</ProjectName>
+    <ProjectName>Core</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>|#projtype#|</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>|#projtype#|</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>|#projtype#|</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>|#projtype#|</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -74,37 +80,37 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
-    <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\$(Configuration)\;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)libraries\lib\$(PlatformShortName)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\$(Configuration)\;$(LibraryWPath)</LibraryWPath>
+    <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
-    <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\$(Configuration)\;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)libraries\lib\$(PlatformShortName)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\$(Configuration)\;$(LibraryWPath)</LibraryWPath>
+    <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
-    <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\$(Configuration)\;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)libraries\lib\$(PlatformShortName)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\$(Configuration)\;$(LibraryWPath)</LibraryWPath>
+    <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformShortName)\$(Configuration)\</IntDir>
-    <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\$(Configuration)\;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)libraries\utilities\$(PlatformShortName)\;$(ExecutablePath)</ExecutablePath>
     <IncludePath>$(SolutionDir)libraries\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)libraries\lib\$(PlatformShortName)\$(Configuration)\;$(LibraryPath)</LibraryPath>
-    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\$(Configuration)\;$(LibraryWPath)</LibraryWPath>
+    <LibraryPath>$(SolutionDir)libraries\bin\$(PlatformShortName)\;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>$(SolutionDir)libraries\dll\$(PlatformShortName)\;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

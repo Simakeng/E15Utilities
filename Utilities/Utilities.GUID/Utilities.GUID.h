@@ -24,11 +24,6 @@
  @see https://zh.wikipedia.org/wiki/%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86%E7%AC%A6
 
  具体使用方式以及接口定义请参考 Utilities::GUID
-
- @{
-
-
- @}
 */
 
 #ifndef _UTILITIES_GUID_

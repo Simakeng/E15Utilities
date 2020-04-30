@@ -11,9 +11,6 @@
 #include <string>
 #include <exception>
 
-/// <summary>
-/// 通用编程库命名空间
-/// </summary>
 namespace Utilities 
 {
     using string = std::u32string;      //!< UCS-4字符串类型

@@ -839,7 +839,8 @@ INPUT                  = .\ \
                          .\Utilities\Utilities\ \
                          .\Utilities\Utilities.GUID\ \
                          .\Utilities\Utilities.Common\ \
-                         .\Utilities\Utilities.Stream\ 
+                         .\Utilities\Utilities.Stream\ \
+                         .\Utilities\Utilities.Window\ 
                          
 
 # This tag can be used to specify the character encoding of the source files

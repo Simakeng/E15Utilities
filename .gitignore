@@ -12,3 +12,9 @@ docs/html
 
 # Nuget包
 packages/
+
+# Python 缓存
+*.pyc
+
+# 编码表缓存
+*.codetab

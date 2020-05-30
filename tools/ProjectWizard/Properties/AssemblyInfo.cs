@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("VS工程配置生成器")]
 [assembly: AssemblyDescription("一键按照模板为Visual Studio生成工程配置文件")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("湖南易遥科技有限公司")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ProjectWizard")]
-[assembly: AssemblyCopyright("Copyright © Hunan Yiyao Technology Co., Ltd. 2020")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

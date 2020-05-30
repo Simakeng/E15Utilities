@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("代码头文件解析打包工具")]
 [assembly: AssemblyDescription("使用命令行参数读取和打包项目")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("湖南易遥科技有限公司")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Pack")]
-[assembly: AssemblyCopyright("Copyright © Hunan Yiyao Technology Co., Ltd. 2020")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

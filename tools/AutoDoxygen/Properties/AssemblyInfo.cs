@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("自动文档生成器")]
 [assembly: AssemblyDescription("自动扫描并检测Git更改并更新文档")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("湖南易遥科技有限公司")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("AutoDoxygen")]
-[assembly: AssemblyCopyright("Copyright © Hunan Yiyao Technology Co., Ltd. 2020")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

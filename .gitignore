@@ -7,6 +7,12 @@
 # 生成目录
 **/bin
 
+# 生成的库文件
+**/libraries
+
+# 生成的工具文件
+/tools/*.exe
+
 # 文档生成目录
 docs/html
 

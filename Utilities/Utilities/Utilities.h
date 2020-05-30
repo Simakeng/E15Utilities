@@ -29,7 +29,7 @@ namespace Utilities
     using uint32 = uint32_t;    //!< 32 位无符号整数类型
     using uint64 = uint64_t;    //!< 64 位无符号整数类型
 
-    using utf8 = int8_t;        
+    using utf8 = char;        
     using ucs2 = char16_t;
     using ucs4 = char32_t;
 
@@ -41,4 +41,16 @@ namespace Utilities
 
 	using Exception = std::exception;   //!< 异常类型
     using Handle = void*;               //!< 句柄类型
+
+    struct byte
+    {
+        uint8_t _v;
+        byte():_v(0){};
+        template<typename T>
+        byte(const T& _r) : _v(_r) {};
+        template<typename T>
+        operator T() { return _v; }
+    };
+
+    using bytes = std::basic_string<byte>;
 }

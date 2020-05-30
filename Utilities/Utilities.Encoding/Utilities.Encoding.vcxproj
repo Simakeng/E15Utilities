@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClInclude Include="Utilities.Encoding.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Utilities.Encoding.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{7e870b3a-9707-4053-9bff-f3ae953816ff}</ProjectGuid>

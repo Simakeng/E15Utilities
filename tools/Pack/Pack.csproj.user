@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>"staticlibrary" "G:\Repos\GameEngine\bin\Utilities.Stream\x86\Debug\Utilities.Stream.lib" "G:\Repos\GameEngine\Utilities\Utilities.Stream\%40" "G:\Repos\GameEngine\libraries\include\Utilities.Stream.h" "G:\Repos\GameEngine\libraries\{gen_type}\x86\Debug\Utilities.Stream.lib" ".lib"</StartArguments>
-  </PropertyGroup>
-</Project>
